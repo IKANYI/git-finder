@@ -1,0 +1,26 @@
+.header{
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(7, 15, 43);
+  color: azure;
+  height: 20vh;
+  align-items: center;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  padding: .5rem;
+}
+.title{
+  font-size: 35px;
+  text-transform: capitalize;
+}
+.author{
+  font-size: 15px;
+  text-transform: capitalize;
+
+}
+.searchSection input{
+  padding: .2rem 1rem;
+}
+.searchSection button{
+  padding: .2rem 1rem;
+}
