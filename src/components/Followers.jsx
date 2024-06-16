@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import useUserNameStore from "./UserNameStore";
+import './Followers.css';
 
 function Followers() {
   const username = useUserNameStore((state) => state.username);
+  const setUsername = useUserNameStore((state) => state.setUsername);
   const [followers, setFollowers] = useState([]);
 
   useEffect(() => {
@@ -13,7 +15,7 @@ function Followers() {
           if (response.ok) {
             const data = await response.json();
             setFollowers(data);
-          } else { 
+          } else {
             console.error("Failed to fetch followers:", response.status);
           }
         } catch (error) {
@@ -24,6 +26,14 @@ function Followers() {
     }
   }, [username]);
 
+  const handleChangeUsername = (newUsername) => {
+    if (newUsername.trim()) {
+      setUsername(newUsername);
+    } else {
+      console.error("Username cannot be empty.");
+    }
+  };
+
   return (
     <div className="followers-container">
       <h2 className="followers-title">Followers of {username}</h2>
@@ -32,6 +42,7 @@ function Followers() {
           <div key={follower.id} className="follower-item">
             <img src={follower.avatar_url} alt={follower.login} className="follower-avatar" />
             <p>{follower.login}</p>
+            <button onClick={() => handleChangeUsername(follower.login)}>View {follower.login}</button>
           </div>
         ))}
       </div>

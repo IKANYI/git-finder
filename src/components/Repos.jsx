@@ -5,6 +5,7 @@ import './repos.css'
 function Repos() {
   const username = useUserNameStore((state) => state.username);
   const [repos, setRepos] = useState([]);
+  const [fork, setFork] = useState('');
 
   useEffect(() => {
     if (username) {
@@ -14,6 +15,7 @@ function Repos() {
           if (response.ok) {
             const data = await response.json();
             setRepos(data);
+            setFork(data.fork);
           } else {
             console.error("Failed to fetch repositories:", response.status);
           }

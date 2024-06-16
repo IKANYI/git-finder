@@ -3,7 +3,7 @@ import useUserNameStore from "./UserNameStore";
 import { useState } from "react";
 
 function Head() {
-  const setUsername = useUserNameStore((state) => state.setUsername); // Correct function
+  const setUsername = useUserNameStore((state) => state.setUsername);
   const [usernameInput, setUsernameInput] = useState("");
 
   const handleUserNameInput = (e) => {
@@ -12,8 +12,8 @@ function Head() {
 
   const handleChangeUsername = () => {
     if (usernameInput.trim()) {
-      setUsername(usernameInput); // Use setUsername to set new username
-      setUsernameInput(""); // Clear input after setting the username
+      setUsername(usernameInput);
+      setUsernameInput("");
     } else {
       console.error("Username cannot be empty.");
     }
@@ -32,7 +32,7 @@ function Head() {
           type="text"
           className="text"
           placeholder="Enter a username"
-          value={usernameInput} // Controlled component
+          value={usernameInput}
           onChange={handleUserNameInput}
         />
         <button className="search" onClick={handleChangeUsername}>Search</button>

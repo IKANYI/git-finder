@@ -3,6 +3,10 @@
   grid-template-columns: 15rem auto;
   overflow-x: hidden;
 }
+.profile-info{
+  position: relative;
+  text-align: center;
+}
 .home{
   margin-top: .5rem;
 }
